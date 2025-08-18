@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random PK Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-gradient-light: linear-gradient(135deg, #74b9ff, #a29bfe);
@@ -27,22 +28,34 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             min-height: 100vh;
             text-align: center;
             transition: background 0.3s ease, color 0.3s ease;
         }
         h1 {
             font-size: 2.5rem;
-            margin-bottom: 40px;
+            margin: 30px 0;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
         }
+
+        /* 메인 컨테이너: 좌측 버튼, 우측 패치노트 */
+        .main-container {
+            display: flex;
+            gap: 40px;
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap; /* 화면 좁아지면 위아래로 */
+        }
+
         .button-container {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            width: 90%;
-            max-width: 300px;
+            width: 250px;
         }
         .btn {
             display: block;
@@ -53,8 +66,20 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(5px);
         }
+
+        /* 패치노트 박스 */
+        .patchnote {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            text-align: left;
+            line-height: 1.6;
+        }
+
         footer {
-            margin-top: 50px;
+            margin: 30px 0;
             font-size: 0.9rem;
             opacity: 0.8;
         }
@@ -65,7 +90,7 @@
                 background: var(--bg-gradient-light);
                 color: var(--text-color-light);
             }
-            .btn {
+            .btn, .patchnote {
                 background-color: var(--btn-bg-light);
                 border: 2px solid var(--btn-border-light);
                 color: var(--text-color-light);
@@ -83,7 +108,7 @@
                 background: var(--bg-gradient-dark);
                 color: var(--text-color-dark);
             }
-            .btn {
+            .btn, .patchnote {
                 background-color: var(--btn-bg-dark);
                 border: 2px solid var(--btn-border-dark);
                 color: var(--text-color-dark);
@@ -97,16 +122,30 @@
     </style>
 </head>
 <body>
-    <!-- 제목 수정 -->
     <h1>Random PK Quiz 📌</h1>
 
-    <div class="button-container">
-        <a href="https://jd-cpu.github.io/Random-NP/" class="btn" target="_blank">정신과 Post-test</a>
-        <a href="https://jd-cpu.github.io/Random-Neuro/" class="btn" target="_blank">신경과 Post-test</a>
+    <div class="main-container">
+        <!-- 버튼 영역 -->
+        <div class="button-container">
+            <a href="https://jd-cpu.github.io/Random-NP/" class="btn" target="_blank" rel="noopener noreferrer">정신과 Post-test</a>
+            <a href="https://jd-cpu.github.io/Random-Neuro/" class="btn" target="_blank" rel="noopener noreferrer">신경과 Post-test</a>
+            <a href="https://jd-cpu.github.io/Random-Radiology/" class="btn" target="_blank" rel="noopener noreferrer">영상의학과 Post-test</a> <!-- 추가된 버튼 -->
+        </div>
+
+        <!-- 패치노트 영역 -->
+        <div class="patchnote">
+            <h2>📒 패치노트</h2>
+            <ul>
+                <li>2025-08-17: 신경과 Post-test 개설(2021-2023, 2025 전반기)</li>
+                <li>2025-08-18: 영상의학과 Post-test 개설(2022-2023)</li>
+            </ul>
+        </div>
     </div>
 
     <footer>
-        by 20 이재덕
+        by 20 이재덕<br>
+        기술적 문제/내용적 오류 및 수정 요청은 언제나 편하게 연락주세요.<br>
+        본 퀴즈 생성기의 오류로 인한 불이익은 책임지지 않습니다.
     </footer>
 </body>
 </html>
